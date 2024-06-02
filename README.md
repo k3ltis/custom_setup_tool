@@ -30,10 +30,10 @@ Also automation is key.
   * neovim
   * podman
 * [x] Podman 
-* [ ] fzf keybindings (`$(brew --prefix)/opt/fzf/install`)
+* [x] fzf keybindings (`$(brew --prefix)/opt/fzf/install`)
 * [ ] vscode configuration
 * [ ] symlink optimization with stow
-* [ ] Golang
+* [x] Golang
 
 # Usage
 

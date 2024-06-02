@@ -1,4 +1,5 @@
 ---
+brew_executable: /home/linuxbrew/.linuxbrew/bin/brew
 nvim_config_file_template: nvim.init
 nvim_config_file_path: $HOME/.config/nvim/init.vim
 nvim_config_dir: $HOME/.config/nvim/

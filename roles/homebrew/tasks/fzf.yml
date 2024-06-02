@@ -4,4 +4,4 @@
     name: fzf
     state: present
 - name: Install keybindings
-  ansible.builtin.shell: $(brew --prefix)/opt/fzf/install
+  ansible.builtin.shell: $({{ brew_executable }} --prefix)/opt/fzf/install

@@ -4,6 +4,6 @@
 - name: Add Homebrew to terminal
   shell: |
     echo '# Set PATH, MANPATH, etc., for Homebrew.' >> {{ shell_config_path }}
-    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> {{ shell_config_path }}
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    echo 'eval "$({{ brew_executable }} shellenv)"' >> {{ shell_config_path }}
+    eval "$({{ brew_executable }} shellenv)"
 - include_tasks: homebrew_fomulae.yml

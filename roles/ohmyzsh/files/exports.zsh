@@ -1,5 +1,3 @@
-# export GODOT_BIN=...
-# export NEXTCLOUD_ROOT=...
-
-export XDG_CONFIG_HOME="$HOME/.config"
-export PATH="$HOME/.local/bin:$PATH"
+export XDG_CONFIG_HOME="$HOME/.config" # See https://wiki.archlinux.org/title/XDG_Base_Directory
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/go:/usr/local/go/bin" # See https://go.dev/doc/install
