@@ -8,7 +8,7 @@ The time spent on installing the same CLI tools in fresh environments over and o
 I need to to this frequently and it simply cumbersome and error-prone.
 Also automation is key.
 
-# Tools/Configuration Covered
+## Tools/Configuration Covered
 * [x] Oh-my-zsh
 * [x] Homebrew
 * [x] homebrew formulas
@@ -35,7 +35,9 @@ Also automation is key.
 * [ ] symlink optimization with stow
 * [ ] Golang
 
-# Prerequisites
+# Usage
+
+## Prerequisites
 
 You have to install ansible on the host. Alternatively you can use an exection environment, see [EE documentation](https://ansible.readthedocs.io/en/latest/getting_started_ee/index.html).
 
@@ -47,7 +49,7 @@ sudo apt install pipx
 pipx install --include-deps ansible
 ```
 
-# Usage
+## Run Locally
 
 ```shell
 # Install ansible roles
