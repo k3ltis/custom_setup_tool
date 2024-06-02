@@ -39,7 +39,7 @@ Also automation is key.
 
 ## Prerequisites
 
-You have to install ansible on the host. Alternatively you can use an exection environment, see [EE documentation](https://ansible.readthedocs.io/en/latest/getting_started_ee/index.html).
+You have to install ansible on the host. Alternatively you can use an execution environment, see [EE documentation](https://ansible.readthedocs.io/en/latest/getting_started_ee/index.html).
 
 ```shell
 # Install pipx
