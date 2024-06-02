@@ -1,0 +1,14 @@
+---
+- name: Install lazydocker
+  community.general.homebrew:
+    name: lazydocker
+    state: present
+- name: Create lazydocker config directory
+  ansible.builtin.file:
+    path: "{{ lazydocker_config_dir }}"
+    state: directory
+- name: Set lazydocker config
+  ansible.builtin.copy:
+    src: "{{ lazydocker_config_template }}"
+    dest: "{{ lazydocker_config_file_path }}"
+    force: false
