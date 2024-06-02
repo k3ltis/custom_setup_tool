@@ -8,7 +8,7 @@ The time spent on installing the same CLI tools in fresh environments over and o
 I need to to this frequently and it simply cumbersome and error-prone.
 Also automation is key.
 
-## Tools/Configuration Covered
+## Tools and configuration covered
 * [x] Oh-my-zsh
 * [x] Homebrew
 * [x] homebrew formulas
@@ -37,25 +37,19 @@ Also automation is key.
 
 # Usage
 
-## Prerequisites
-
-You have to install ansible on the host. Alternatively you can use an execution environment, see [EE documentation](https://ansible.readthedocs.io/en/latest/getting_started_ee/index.html).
+To execute the playbook against localhost you have to first install ansible, then the ansible requirements and finally run the playbook.
 
 ```shell
-# Install pipx
-sudo apt install pipx
+# Install ansible and re-login shell
+sudo apt update && sudo apt install pipx && pipx ensurepath && pipx install --include-deps ansible
 
-# Install ansible
-pipx install --include-deps ansible
-```
+# Clone repo
+git clone git@github.com:k3ltis/custom_setup_tool.git && cd custom_setup_tool
 
-## Run Locally
-
-```shell
 # Install ansible roles
 ansible-galaxy install -r requirements.yml
 
-# Run the playbook on the localhost (requires local ansible installation), verify with `--check/-C`
+# Run playbook
 CUSTOM_USERNAME=
 ansible-playbook -i inventory.yml -l local -e ansible_user=$CUSTOM_USERNAME --ask-become-pass setup.yml
 ```
