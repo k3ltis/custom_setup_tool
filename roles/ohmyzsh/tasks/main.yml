@@ -58,3 +58,15 @@
         line: source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
       ignore_errors: "{{ ansible_check_mode }}"
   tags: zsh_autosuggestions
+- name: Ensure .zshrc sources /etc/profile.d
+  ansible.builtin.blockinfile:
+    path: $HOME/.zshrc
+    append_newline: true
+    prepend_newline: true
+    block: |
+      # Source all scripts in /etc/profile.d
+      if [ -d /etc/profile.d ]; then
+        for script in /etc/profile.d/*.sh; do
+          [ -r "$script" ] && source "$script"
+        done
+      fi

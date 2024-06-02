@@ -22,6 +22,5 @@
     - role: homebrew
       tags: homebrew
     - role: gantsign.golang
-      golang_gopath: '$HOME/go'
       tags: golang
   
