@@ -1,0 +1,24 @@
+- hosts: all
+  become: false
+  vars:
+    instance_owner: "{{ ansible_user }}"
+    is_ubuntu: ansible_facts['os_family'] == 'Debian' and ansible_facts['distribution'] == 'Ubuntu'
+    is_mac: ansible_facts['os_family'] == 'Darwin'
+    is_ubuntu_or_mac: ({{ is_ubuntu }}) or ({{ is_mac }})
+    shell_config_path: $HOME/.zshrc
+  pre_tasks:
+    - name: Check for username
+      block:
+        - name: Verify ansible_user is set
+          fail:
+            msg: "'ansible_user' not set. Please specify a different username using '-e ansible_user=username'"
+          when: ansible_user == ''
+        - name: Display the specified username
+          debug:
+            msg: "The specified username is {{ ansible_user }}"
+  roles:
+    - role: ohmyzsh
+      tags: ohmyzsh
+    - role: homebrew
+      tags: homebrew
+  

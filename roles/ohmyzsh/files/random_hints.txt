@@ -1,0 +1,18 @@
+fzf - Fuzzy search
+tldr - Quick info for commands
+stow - Symlink farm manager
+tmux - Terminal multiplexer
+autoenv - Automatically execute .env files when entering a directory
+ag - Search in files with the Silver Searcher
+yq - yaml converter
+sed
+coretutils (run `info coreutils`)
+fx - Terminal JSON viewer
+fd - A program to find entries in your filesystem
+Art of command line: https://github.com/jlevy/the-art-of-command-line
+glances - System overview
+dive - Investigate docker image layers
+k9s - Kubernetes management
+lazydocker - Docker and docker-compose management
+ctop - htop but for containers
+neovim - vim like terminal text editor

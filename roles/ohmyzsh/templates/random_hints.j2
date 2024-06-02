@@ -1,0 +1,1 @@
+shuf -n 1  {{ random_hints_txt_destination }} | xargs -I "{}" printf "Random hint \"%s\"\\n" {}
