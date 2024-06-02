@@ -1,13 +1,43 @@
-# Custom Unix Setup Tool
+# Custom Setup Tool
 
+Tool to install ohmyzsh, homebrew, homebrew formulas, and other handy tools on a (fresh) unix instance.
+While this tool is specific for my needs and personal preference it might be useful as inspiration on how to setup your own tool.
+
+## Motivation
 The time spent on installing the same CLI tools in fresh environments over and over again is _too damn high_.
-This tool allows to quickly setup a unix-based evironment (for me usually WSL2) by installing my favorite tools and configuration using Ansible.
+I need to to this frequently and it simply cumbersome and error-prone.
+Also automation is key.
 
-Currently the tool is installing and configuring
-* Oh-my-zsh including custom alias, exports, scripts etc.
-* Homebrew together plus a bunch of homebrew formulas
+# Tools/Configuration Covered
+* [x] Oh-my-zsh
+* [x] Homebrew
+* [x] homebrew formulas
+  * fzf
+  * tldr
+  * stow
+  * tmux
+  * the_silver_searcher
+  * glances
+  * yq
+  * fx
+  * coreutils
+  * tree
+  * fd
+  * dive
+  * k9s
+  * lazydocker
+  * ctop
+  * neovim
+* [ ] Docker
+* [ ] Podman 
+* [ ] fzf keybindings (`$(brew --prefix)/opt/fzf/install`)
+* [ ] vscode configuration
+* [ ] symlink optimization with stow
+* [ ] Golang
 
-# Prerequisites for WSL2
+# Prerequisites
+
+You have to install ansible on the host. Alternatively you can use an exection environment, see [EE documentation](https://ansible.readthedocs.io/en/latest/getting_started_ee/index.html).
 
 ```shell
 # Install pipx
@@ -47,19 +77,3 @@ ansible-playbook -i inventory.yml -l dev --tags "ohmyzsh,homebrew" setup.yml
 ```
 
 Clean up the docker container by simply stopping it.
-
-# TODOs
-
-* Docker
-    * [Docker for WSL2](https://dev.to/bowmanjd/install-docker-on-windows-wsl-without-docker-desktop-34m9)
-* Podman
-* fzf keybindings `$(brew --prefix)/opt/fzf/install`
-* vscode configuration
-* optimization with stow
-* Set Go path
-
-# Manual Installs
-
-* Python pipx `sudo apt install pipx`
-* Golang `sudo snap install go`
-* Java `sudo apt install openjdk-17-jre-headless`
