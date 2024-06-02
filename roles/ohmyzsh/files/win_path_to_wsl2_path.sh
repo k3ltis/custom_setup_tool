@@ -5,11 +5,11 @@ set -o nounset
 set -o pipefail
 
 if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
-    echo 'Usage: ./win_path_to_unix_path.sh windows_path
+    echo 'Usage: ./win_path_to_wsl2_path.sh windows_path
 
-Converts a windows-style path to unix-based path. For example
-"C:\Users\foo\bar\baz with space" --> "/mnt/c/Users/foo/bar/baz\ with\ space"
+Converts a windows-style path to a valid WSL2 path, e.g. "C:\Users\foo\bar\baz with space" will become "/mnt/c/Users/foo/bar/baz\ with\ space".
 
+Will only work for paths on drive C:
 '
     exit
 fi
