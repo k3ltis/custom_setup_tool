@@ -3,6 +3,10 @@
 The time spent on installing the same CLI tools in fresh environments over and over again is _too damn high_.
 This tool allows to quickly setup a unix-based evironment (for me usually WSL2) by installing my favorite tools and configuration using Ansible.
 
+Currently the tool is installing and configuring
+* Oh-my-zsh including custom alias, exports, scripts etc.
+* Homebrew together plus a bunch of homebrew formulas
+
 # Prerequisites for WSL2
 
 ```shell
@@ -21,7 +25,7 @@ ansible-galaxy install -r requirements.yml
 
 # Run the playbook on the localhost (requires local ansible installation), verify with `--check/-C`
 CUSTOM_USERNAME=
-ansible-playbook -i inventory.yml -l local -e ansible_user=$CUSTOM_USERNAME setup.yml
+ansible-playbook -i inventory.yml -l local -e ansible_user=$CUSTOM_USERNAME --ask-become-pass setup.yml
 ```
 
 # Development
@@ -52,6 +56,7 @@ Clean up the docker container by simply stopping it.
 * fzf keybindings `$(brew --prefix)/opt/fzf/install`
 * vscode configuration
 * optimization with stow
+* Set Go path
 
 # Manual Installs
 
