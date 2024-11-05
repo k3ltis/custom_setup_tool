@@ -18,7 +18,7 @@
             - python
             - docker
             - podman
-- name: Set nvim config
+- name: Copy customs
   ansible.builtin.copy:
     src: "{{ item }}"
     dest: "$HOME/.oh-my-zsh/custom/{{ item }}"
@@ -27,6 +27,20 @@
     - alias.zsh
     - exports.zsh
     - sources.zsh
+- name: Install custom scripts
+  block:
+    - name: Create custom scripts directory
+      ansible.builtin.file:
+        path: $HOME/.oh-my-zsh/custom/scripts
+        state: directory
+    - name: Copy scripts
+      ansible.builtin.copy:
+        src: "{{ item }}"
+        dest: "$HOME/.oh-my-zsh/custom/scripts"
+        force: true
+        mode: "0740"
+      loop:
+        - win_path_to_unix_path.sh
 - name: Install random hints at shell startup
   block:
     - name: Create custom directory
