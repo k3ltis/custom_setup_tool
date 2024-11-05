@@ -1,0 +1,7 @@
+---
+- name: Install fzf
+  community.general.homebrew:
+    name: fzf
+    state: present
+- name: Install keybindings
+  ansible.builtin.shell: $(brew --prefix)/opt/fzf/install

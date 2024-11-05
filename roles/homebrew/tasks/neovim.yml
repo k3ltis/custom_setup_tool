@@ -1,0 +1,14 @@
+---
+- name: Install nvim (neovim)
+  community.general.homebrew:
+    name: neovim
+    state: present
+- name: Create nvim config directory
+  ansible.builtin.file:
+    path: "{{ nvim_config_dir }}"
+    state: directory
+- name: Set nvim config
+  ansible.builtin.copy:
+    src: "{{ nvim_config_file_template }}"
+    dest: "{{ nvim_config_file_path }}"
+    force: false

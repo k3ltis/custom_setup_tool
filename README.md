@@ -28,8 +28,8 @@ Also automation is key.
   * lazydocker
   * ctop
   * neovim
-* [ ] Docker
-* [ ] Podman 
+  * podman
+* [x] Podman 
 * [ ] fzf keybindings (`$(brew --prefix)/opt/fzf/install`)
 * [ ] vscode configuration
 * [ ] symlink optimization with stow

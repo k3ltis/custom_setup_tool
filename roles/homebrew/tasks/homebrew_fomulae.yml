@@ -1,0 +1,60 @@
+---
+- name: Install homebrew formulas
+  ignore_errors: "{{ ansible_check_mode }}"
+  block:
+  - include_tasks: fzf.yml
+  - include_tasks: tmux.yml
+  - include_tasks: lazydocker.yml
+  - include_tasks: neovim.yml
+  - name: Install tldr
+    community.general.homebrew:
+      name: tldr
+      state: present
+  - name: Install stow
+    community.general.homebrew:
+      name: stow
+  - name: Install the_silver_searcher (ag command)
+    community.general.homebrew:
+      name: the_silver_searcher
+      state: present
+  - name: Install glances (system information viewer)
+    community.general.homebrew:
+      name: glances
+      state: present
+  - name: Install yq (yaml processor)
+    community.general.homebrew:
+      name: yq
+      state: present
+  - name: Install fx (Json viewer)
+    community.general.homebrew:
+      name: fx
+      state: present  
+  - name: Install coreutils
+    community.general.homebrew:
+      name: coreutils
+      state: present  
+  - name: Install tree
+    community.general.homebrew:
+      name: tree
+      state: present
+  - name: Install fd (find alternative)
+    community.general.homebrew:
+      name: fd
+      state: present
+  - name: Install dive (docker layer inspection tool)
+    community.general.homebrew:
+      name: dive
+      state: present
+  - name: Install k9s
+    community.general.homebrew:
+      name: k9s
+      state: present
+  - name: Install ctop (container top)
+    community.general.homebrew:
+      name: ctop
+      state: present
+  - name: Install podman
+    community.general.homebrew:
+      name: podman
+      state: present
+  

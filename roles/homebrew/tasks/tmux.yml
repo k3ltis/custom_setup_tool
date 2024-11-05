@@ -1,0 +1,17 @@
+---
+- name: Install tmux
+  community.general.homebrew:
+    name: tmux
+    state: present
+- name: Install tmux plugin manager
+  ansible.builtin.git:
+    repo: 'https://github.com/tmux-plugins/tpm'
+    dest: '$HOME/.tmux/plugins/tpm'
+    version: "{{ tmux_plugin_manager_version }}"
+    force: true
+    update: true
+- name: Set tmux config
+  ansible.builtin.copy:
+    src: "{{ tmux_config_template }}"
+    dest: "{{ tmux_config_destination }}"
+    force: false
