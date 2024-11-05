@@ -1,0 +1,14 @@
+---
+local_machines:
+  hosts:
+    local:
+      ansible_connection: ansible.builtin.local
+      ansible_host: localhost
+      # Set via `-e ansible_user=...`
+      ansible_user: 
+docker_containers:
+  hosts:
+    dev:
+      ansible_host: custom_setup_tool_dev
+      ansible_connection: community.docker.docker
+      ansible_user: root

@@ -1,0 +1,10 @@
+---
+nvim_config_file_template: nvim.init
+nvim_config_file_path: $HOME/.config/nvim/init.vim
+nvim_config_dir: $HOME/.config/nvim/
+tmux_config_template: tmux.conf
+tmux_config_destination: $HOME/.tmux.conf
+tmux_plugin_manager_version: v3.1.0
+lazydocker_config_template: lazydocker.conf
+lazydocker_config_dir: $HOME/.config/lazydocker/
+lazydocker_config_file_path: $HOME/.config/lazydocker/config.yml

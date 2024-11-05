@@ -1,0 +1,60 @@
+---
+- name: Install zsh via role
+  ansible.builtin.include_role:
+    name: gantsign.oh-my-zsh
+  vars:
+    users:
+      - username: "{{ ansible_user }}"
+        oh_my_zsh:
+          theme: robbyrussell
+          plugins:
+            - git
+            - encode64
+            - extract
+            - vscode
+            - urltools
+            - z
+            - kubectl
+            - python
+            - docker
+            - podman
+- name: Set nvim config
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "$HOME/.oh-my-zsh/custom/{{ item }}"
+    force: false
+  loop:
+    - alias.zsh
+    - exports.zsh
+    - sources.zsh
+- name: Install random hints at shell startup
+  block:
+    - name: Create custom directory
+      ansible.builtin.file:
+        path: "{{ ohmyzsh_custom_config_dir }}"
+        state: directory
+    - name: Render random_hints.zsh
+      ansible.builtin.template:
+        src: "{{ random_hints_template_source }}"
+        dest: "{{ random_hints_template_destination }}"
+    - name: Copy random_hints.txt
+      ansible.builtin.copy:
+        src: "{{ random_hints_txt_source }}"
+        dest: "{{ random_hints_txt_destination }}"
+  tags: random_hints
+- name: Install zsh-autosuggestions
+  block:
+    - name: Clone repo
+      ansible.builtin.git:
+        repo: https://github.com/zsh-users/zsh-autosuggestions.git
+        dest: $HOME/.zsh/zsh-autosuggestions
+        version: "{{ zsh_autosuggestions_version }}"
+        force: true
+        update: true
+    - name: Add zsh-autosuggestions to shell startup
+      ansible.builtin.lineinfile:
+        path: $HOME/.oh-my-zsh/custom/sources.zsh
+        search_string: source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+        line: source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+      ignore_errors: "{{ ansible_check_mode }}"
+  tags: zsh_autosuggestions

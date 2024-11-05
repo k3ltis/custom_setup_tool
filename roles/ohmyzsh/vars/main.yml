@@ -1,0 +1,7 @@
+---
+ohmyzsh_custom_config_dir: $HOME/.oh-my-zsh/custom
+random_hints_txt_source: random_hints.txt
+random_hints_txt_destination: $HOME/.oh-my-zsh/custom/random_hints.txt
+random_hints_template_source: random_hints.j2
+random_hints_template_destination: $HOME/.oh-my-zsh/custom/random_hints.zsh
+zsh_autosuggestions_version: "v0.7.0"
